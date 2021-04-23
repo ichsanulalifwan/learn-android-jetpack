@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.moviecatalogue.data.MovieEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemMovieBinding
 
@@ -12,7 +11,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listMovies = ArrayList<MovieEntity>()
 
-    fun setMovies(movies: List<MovieEntity>?) {
+    fun setDataMovies(movies: List<MovieEntity>?) {
         if (movies == null) return
         this.listMovies.clear()
         this.listMovies.addAll(movies)
@@ -40,13 +39,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             with(binding) {
                 tvTitle.text = movie.title
                 tvGenre.text = movie.genre
+                tvQuote.text = movie.quote
 
                 Glide.with(itemView.context)
                     .load(movie.poster)
-                    .apply(RequestOptions.overrideOf(120, 120))
+                    .centerCrop()
                     .into(imgPoster)
             }
         }
-
     }
 }

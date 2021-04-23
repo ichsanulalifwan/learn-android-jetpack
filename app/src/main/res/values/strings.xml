@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Title Example</string>
     <string name="season_text">Seasons</string>
+    <string name="tab_text_movies">Movies</string>
+    <string name="tab_text_tvshow">Tv Shows</string>
+    <string name="quotes">Quotes</string>
 </resources>

@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.moviecatalogue.data.TvShowEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemTvshowBinding
 
@@ -12,7 +11,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
     private var listTvShow = ArrayList<TvShowEntity>()
 
-    fun setMovies(tvshows: List<TvShowEntity>?) {
+    fun setDataTvShow(tvshows: List<TvShowEntity>?) {
         if (tvshows == null) return
         this.listTvShow.clear()
         this.listTvShow.addAll(tvshows)
@@ -39,13 +38,13 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
             with(binding) {
                 tvTitle.text = tvshow.title
                 tvGenre.text = tvshow.genre
+                numberOfSeason.text = tvshow.season.toString()
 
                 Glide.with(itemView.context)
                     .load(tvshow.poster)
-                    .apply(RequestOptions.overrideOf(120, 120))
+                    .centerCrop()
                     .into(imgPoster)
             }
         }
-
     }
 }
