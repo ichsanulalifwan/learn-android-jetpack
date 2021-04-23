@@ -1,14 +1,13 @@
-package com.dicoding.picodiploma.moviecatalogue.ui
+package com.dicoding.picodiploma.moviecatalogue.ui.tvshow
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.picodiploma.moviecatalogue.adapter.TvShowAdapter
 import com.dicoding.picodiploma.moviecatalogue.databinding.FragmentTvShowBinding
-import com.dicoding.picodiploma.moviecatalogue.utils.DataDummy
 
 class TvShowFragment : Fragment() {
 
@@ -27,7 +26,13 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val tvshow = DataDummy.generateDummyTvShow()
+            val viewModel = ViewModelProvider(
+                this,
+                ViewModelProvider.NewInstanceFactory()
+            )[TvShowViewModel::class.java]
+
+            val tvshow = viewModel.getTvShow()
+
             tvShowAdapter = TvShowAdapter()
             tvShowAdapter.setDataTvShow(tvshow)
 

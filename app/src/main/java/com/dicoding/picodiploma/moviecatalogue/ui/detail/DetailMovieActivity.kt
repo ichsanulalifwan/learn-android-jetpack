@@ -1,12 +1,12 @@
-package com.dicoding.picodiploma.moviecatalogue.ui
+package com.dicoding.picodiploma.moviecatalogue.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.dicoding.picodiploma.moviecatalogue.data.MovieEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ActivityMovieDetailBinding
-import com.dicoding.picodiploma.moviecatalogue.utils.DataDummy
 
 class DetailMovieActivity : AppCompatActivity() {
 
@@ -24,15 +24,17 @@ class DetailMovieActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[DetailMovieViewModel::class.java]
+
         val extras = intent.extras
         if (extras != null) {
             val movieId = extras.getString(EXTRA_MOVIE)
             movieId?.let {
-                for (movie in DataDummy.generateDummyMovies()) {
-                    if (movie.movieId == it) {
-                        populateData(movie)
-                    }
-                }
+                viewModel.setMovie(it)
+                populateData(viewModel.getMovie())
             }
         }
     }

@@ -1,14 +1,13 @@
-package com.dicoding.picodiploma.moviecatalogue.ui
+package com.dicoding.picodiploma.moviecatalogue.ui.movie
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.picodiploma.moviecatalogue.adapter.MovieAdapter
 import com.dicoding.picodiploma.moviecatalogue.databinding.FragmentMovieBinding
-import com.dicoding.picodiploma.moviecatalogue.utils.DataDummy
 
 class MovieFragment : Fragment() {
 
@@ -27,7 +26,13 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val movies = DataDummy.generateDummyMovies()
+            val viewModel = ViewModelProvider(
+                this,
+                ViewModelProvider.NewInstanceFactory()
+            )[MovieViewModel::class.java]
+
+            val movies = viewModel.getMovies()
+
             movieAdapter = MovieAdapter()
             movieAdapter.setDataMovies(movies)
 

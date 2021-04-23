@@ -1,12 +1,12 @@
-package com.dicoding.picodiploma.moviecatalogue.ui
+package com.dicoding.picodiploma.moviecatalogue.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.dicoding.picodiploma.moviecatalogue.data.TvShowEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ActivityDetailTvShowBinding
-import com.dicoding.picodiploma.moviecatalogue.utils.DataDummy
 
 class DetailTvShowActivity : AppCompatActivity() {
 
@@ -15,6 +15,7 @@ class DetailTvShowActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_TVSHOW = "extra_tvshow"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,15 +24,17 @@ class DetailTvShowActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[DetailTvShowViewModel::class.java]
+
         val extras = intent.extras
         if (extras != null) {
-            val tvShowId = extras.getString(DetailTvShowActivity.EXTRA_TVSHOW)
+            val tvShowId = extras.getString(EXTRA_TVSHOW)
             tvShowId?.let {
-                for (tvshow in DataDummy.generateDummyTvShow()) {
-                    if (tvshow.tvShowId == it) {
-                        populateData(tvshow)
-                    }
-                }
+                viewModel.setTvShow(it)
+                populateData(viewModel.getTvShow())
             }
         }
     }

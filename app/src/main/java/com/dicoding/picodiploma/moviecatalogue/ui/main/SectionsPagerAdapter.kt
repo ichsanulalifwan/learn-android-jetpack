@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.moviecatalogue.adapter
+package com.dicoding.picodiploma.moviecatalogue.ui.main
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.dicoding.picodiploma.moviecatalogue.R
-import com.dicoding.picodiploma.moviecatalogue.ui.MovieFragment
-import com.dicoding.picodiploma.moviecatalogue.ui.TvShowFragment
+import com.dicoding.picodiploma.moviecatalogue.ui.movie.MovieFragment
+import com.dicoding.picodiploma.moviecatalogue.ui.tvshow.TvShowFragment
 
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

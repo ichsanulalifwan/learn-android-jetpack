@@ -1,8 +1,7 @@
-package com.dicoding.picodiploma.moviecatalogue.ui
+package com.dicoding.picodiploma.moviecatalogue.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dicoding.picodiploma.moviecatalogue.adapter.SectionsPagerAdapter
 import com.dicoding.picodiploma.moviecatalogue.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

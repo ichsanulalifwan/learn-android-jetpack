@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.moviecatalogue.adapter
+package com.dicoding.picodiploma.moviecatalogue.ui.movie
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.moviecatalogue.data.MovieEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemMovieBinding
-import com.dicoding.picodiploma.moviecatalogue.ui.DetailMovieActivity
+import com.dicoding.picodiploma.moviecatalogue.ui.detail.DetailMovieActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 

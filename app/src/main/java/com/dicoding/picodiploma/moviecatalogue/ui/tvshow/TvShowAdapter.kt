@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.moviecatalogue.adapter
+package com.dicoding.picodiploma.moviecatalogue.ui.tvshow
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.moviecatalogue.data.TvShowEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemTvshowBinding
-import com.dicoding.picodiploma.moviecatalogue.ui.DetailTvShowActivity
+import com.dicoding.picodiploma.moviecatalogue.ui.detail.DetailTvShowActivity
 
 class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
