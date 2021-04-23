@@ -1,7 +1,8 @@
-package com.dicoding.picodiploma.moviecatalogue
+package com.dicoding.picodiploma.moviecatalogue.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dicoding.picodiploma.moviecatalogue.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
