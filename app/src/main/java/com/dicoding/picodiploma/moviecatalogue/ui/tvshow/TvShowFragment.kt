@@ -36,7 +36,7 @@ class TvShowFragment : Fragment() {
             tvShowAdapter = TvShowAdapter()
             tvShowAdapter.setDataTvShow(tvshow)
 
-            with(fragmentTvShowBinding.rvMovie) {
+            with(fragmentTvShowBinding.rvTvShow) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = tvShowAdapter

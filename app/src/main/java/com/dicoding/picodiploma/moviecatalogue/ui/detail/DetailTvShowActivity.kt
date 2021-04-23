@@ -41,7 +41,7 @@ class DetailTvShowActivity : AppCompatActivity() {
 
     private fun populateData(tvshow: TvShowEntity) {
         binding.apply {
-            tvTitleMovie.text = tvshow.title
+            tvTitleTvShow.text = tvshow.title
             tvYear.text = tvshow.date.toString()
             tvSeason.text = tvshow.season.toString()
             tvGenre.text = tvshow.genre
