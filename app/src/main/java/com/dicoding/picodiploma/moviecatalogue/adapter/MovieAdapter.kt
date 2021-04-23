@@ -1,11 +1,13 @@
 package com.dicoding.picodiploma.moviecatalogue.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.moviecatalogue.data.MovieEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemMovieBinding
+import com.dicoding.picodiploma.moviecatalogue.ui.DetailMovieActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -40,6 +42,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tvTitle.text = movie.title
                 tvGenre.text = movie.genre
                 tvQuote.text = movie.quote
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie.movieId)
+                    itemView.context.startActivity(intent)
+                }
 
                 Glide.with(itemView.context)
                     .load(movie.poster)

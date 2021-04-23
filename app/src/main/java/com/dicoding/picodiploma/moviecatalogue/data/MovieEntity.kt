@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.moviecatalogue.data
 
 data class MovieEntity(
+        var movieId: String,
         var title: String,
         var genre: String,
         var quote: String,

@@ -1,11 +1,13 @@
 package com.dicoding.picodiploma.moviecatalogue.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.moviecatalogue.data.TvShowEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ItemTvshowBinding
+import com.dicoding.picodiploma.moviecatalogue.ui.DetailTvShowActivity
 
 class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
@@ -39,6 +41,11 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
                 tvTitle.text = tvshow.title
                 tvGenre.text = tvshow.genre
                 numberOfSeason.text = tvshow.season.toString()
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailTvShowActivity::class.java)
+                    intent.putExtra(DetailTvShowActivity.EXTRA_TVSHOW, tvshow.tvShowId)
+                    itemView.context.startActivity(intent)
+                }
 
                 Glide.with(itemView.context)
                     .load(tvshow.poster)
