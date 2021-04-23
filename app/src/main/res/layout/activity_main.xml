@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/tmdb_color"
     tools:context=".ui.main.MainActivity">
 
     <com.google.android.material.tabs.TabLayout
@@ -15,12 +16,11 @@
         app:tabIndicatorAnimationMode="linear"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorHeight="4dp"
         app:tabTextColor="@color/white" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent" />
 </LinearLayout>

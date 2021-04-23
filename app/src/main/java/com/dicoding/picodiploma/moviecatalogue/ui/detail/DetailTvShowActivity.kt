@@ -35,6 +35,7 @@ class DetailTvShowActivity : AppCompatActivity() {
             tvShowId?.let {
                 viewModel.setTvShow(it)
                 populateData(viewModel.getTvShow())
+                supportActionBar?.title = viewModel.getTvShow().title
             }
         }
     }

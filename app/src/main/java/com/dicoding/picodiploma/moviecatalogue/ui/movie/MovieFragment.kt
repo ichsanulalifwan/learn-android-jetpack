@@ -25,6 +25,8 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showLoading(true)
+
         if (activity != null) {
             val viewModel = ViewModelProvider(
                 this,
@@ -36,11 +38,21 @@ class MovieFragment : Fragment() {
             movieAdapter = MovieAdapter()
             movieAdapter.setDataMovies(movies)
 
+            showLoading(false)
+
             with(fragmentMovieBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter
             }
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            fragmentMovieBinding.progressBar.visibility = View.VISIBLE
+        } else {
+            fragmentMovieBinding.progressBar.visibility = View.GONE
         }
     }
 }

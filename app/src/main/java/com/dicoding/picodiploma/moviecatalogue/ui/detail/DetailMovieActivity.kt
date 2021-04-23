@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.dicoding.picodiploma.moviecatalogue.R
 import com.dicoding.picodiploma.moviecatalogue.data.MovieEntity
 import com.dicoding.picodiploma.moviecatalogue.databinding.ActivityMovieDetailBinding
 
@@ -24,6 +25,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
         val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
@@ -35,6 +37,7 @@ class DetailMovieActivity : AppCompatActivity() {
             movieId?.let {
                 viewModel.setMovie(it)
                 populateData(viewModel.getMovie())
+                supportActionBar?.title = viewModel.getMovie().title
             }
         }
     }

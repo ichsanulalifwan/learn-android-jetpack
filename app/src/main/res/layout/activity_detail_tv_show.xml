@@ -8,6 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/tmdb_color"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
 
@@ -31,7 +32,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="start"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +65,7 @@
                 android:id="@+id/tv_season"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white_2"
                 android:layout_gravity="center"
                 android:textSize="16sp"
                 tools:text="@string/season_example" />
@@ -73,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/white_2"
                 android:layout_marginStart="4dp"
                 android:text="@string/season_text"
                 android:textSize="16sp" />
@@ -87,7 +90,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="start"
             android:maxLines="2"
-            android:textColor="@color/black"
+            android:textColor="@color/white_3"
             android:textSize="18sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +105,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="22dp"
             android:text="@string/txt_genres"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_quotes" />
@@ -115,7 +118,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="start"
             android:maxLines="2"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/txt_genre"
@@ -129,7 +132,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="@string/txt_runtime"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_genre" />
@@ -139,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/txt_runtime"
             app:layout_constraintStart_toEndOf="@id/txt_runtime"
@@ -153,7 +156,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="@string/txt_overview"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_runtime" />
@@ -165,7 +168,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:gravity="start"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/txt_overview"

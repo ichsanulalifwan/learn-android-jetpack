@@ -25,6 +25,8 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showLoading(true)
+
         if (activity != null) {
             val viewModel = ViewModelProvider(
                 this,
@@ -36,11 +38,21 @@ class TvShowFragment : Fragment() {
             tvShowAdapter = TvShowAdapter()
             tvShowAdapter.setDataTvShow(tvshow)
 
+            showLoading(false)
+
             with(fragmentTvShowBinding.rvTvShow) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = tvShowAdapter
             }
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            fragmentTvShowBinding.progressBar.visibility = View.VISIBLE
+        } else {
+            fragmentTvShowBinding.progressBar.visibility = View.GONE
         }
     }
 }
