@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Movie Catalogue 2</string>
+    <string name="title">Title Example</string>
+    <string name="txt_genre_example">Genre Example</string>
+    <string name="quotes">Quotes</string>
+    <string name="season_example">0</string>
+    <string name="season_text">Seasons</string>
+    <string name="tab_text_movies">Movies</string>
+    <string name="tab_text_tvshow">Tv Shows</string>
 </resources>
