@@ -23,7 +23,7 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
 
     override fun getPopularMovie(): LiveData<List<MovieResultsItem>> {
         val movies = MutableLiveData<List<MovieResultsItem>>()
-        remoteDataSource.getPopularMovies().enqueue(object : Callback<MovieResponse> {
+        remoteDataSource.getPopularMovie().enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 if (response.isSuccessful) {
                     movies.value = response.body()?.results as List<MovieResultsItem>
@@ -37,5 +37,23 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
             }
         })
         return movies
+    }
+
+    override fun getPopularTvShow(): LiveData<List<TvShowResultsItem>> {
+        val tvShow = MutableLiveData<List<TvShowResultsItem>>()
+        remoteDataSource.getPopularTvShow().enqueue(object : Callback<TvShowResponse> {
+            override fun onResponse(call: Call<TvShowResponse>, response: Response<TvShowResponse>) {
+                if (response.isSuccessful) {
+                    tvShow.value = response.body()?.results as List<TvShowResultsItem>
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return tvShow
     }
 }

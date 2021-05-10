@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.moviecatalogue2
+package com.dicoding.picodiploma.moviecatalogue2.di
 
 import com.dicoding.picodiploma.moviecatalogue2.data.MoviesRepository
 import com.dicoding.picodiploma.moviecatalogue2.data.RemoteDataSource

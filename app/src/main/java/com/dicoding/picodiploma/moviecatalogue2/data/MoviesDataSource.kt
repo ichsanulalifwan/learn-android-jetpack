@@ -5,4 +5,6 @@ import androidx.lifecycle.LiveData
 interface MoviesDataSource {
 
     fun getPopularMovie(): LiveData<List<MovieResultsItem>>
+
+    fun getPopularTvShow(): LiveData<List<TvShowResultsItem>>
 }

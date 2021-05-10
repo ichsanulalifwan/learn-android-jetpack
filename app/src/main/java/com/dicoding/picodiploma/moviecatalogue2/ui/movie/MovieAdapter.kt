@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.moviecatalogue2.data.MovieResultsItem
-import com.dicoding.picodiploma.moviecatalogue2.databinding.ItemMovieBinding
+import com.dicoding.picodiploma.moviecatalogue2.databinding.ItemListBinding
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    companion object{
-        private const val IMAGE_PREFIX = "https://image.tmdb.org/t/p/original"
-    }
-
     private var listMovies = ArrayList<MovieResultsItem>()
+
+    companion object{
+        const val IMAGE_PREFIX = "https://image.tmdb.org/t/p/original"
+    }
 
     fun setDataMovies(movies: List<MovieResultsItem>?) {
         if (movies == null) return
@@ -23,7 +23,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemMovieBinding = ItemMovieBinding.inflate(
+        val itemMovieBinding = ItemListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent, false
         )
@@ -37,14 +37,14 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun getItemCount(): Int = listMovies.size
 
-    class MovieViewHolder(private val binding: ItemMovieBinding) :
+    class MovieViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MovieResultsItem) {
             with(binding) {
                 tvTitle.text = movie.title
-                tvGenre.text = "movie.genre"
-                tvQuote.text = "movie.quote"
+                tvRelaseDate.text = movie.releaseDate
+                tvSummary.text = movie.overview
                 /*itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
                     intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie.movieId)

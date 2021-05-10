@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Movie Catalogue 2</string>
     <string name="title">Title Example</string>
-    <string name="txt_genre_example">Genre Example</string>
-    <string name="quotes">Quotes</string>
+    <string name="txt_relase_date_example">Jan 01, 2021</string>
+    <string name="summary">Summary</string>
     <string name="season_example">0</string>
     <string name="season_text">Seasons</string>
     <string name="tab_text_movies">Movies</string>

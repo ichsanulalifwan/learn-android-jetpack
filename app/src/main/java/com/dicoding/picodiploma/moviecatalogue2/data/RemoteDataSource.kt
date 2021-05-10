@@ -18,7 +18,7 @@ class RemoteDataSource {
             }
     }
 
-    fun getPopularMovies(): Call<MovieResponse> {
-        return ApiConfig.getApiService().getMovie(API_KEY)
-    }
+    fun getPopularMovie(): Call<MovieResponse> = ApiConfig.getApiService().getMovie(API_KEY)
+
+    fun getPopularTvShow(): Call<TvShowResponse> = ApiConfig.getApiService().getTvShow(API_KEY)
 }

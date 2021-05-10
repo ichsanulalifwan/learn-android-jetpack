@@ -45,7 +45,7 @@
             tools:text="@string/title" />
 
         <TextView
-            android:id="@+id/tv_genre"
+            android:id="@+id/tv_relaseDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -56,21 +56,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
-            tools:text="@string/txt_genre_example" />
+            tools:text="@string/txt_relase_date_example" />
 
         <TextView
-            android:id="@+id/tv_quote"
+            android:id="@+id/tv_summary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="start"
             android:maxLines="2"
             android:textColor="@color/black"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_genre"
-            app:layout_constraintTop_toBottomOf="@id/tv_genre"
-            tools:text="@string/quotes" />
+            app:layout_constraintStart_toStartOf="@id/tv_relaseDate"
+            app:layout_constraintTop_toBottomOf="@id/tv_relaseDate"
+            tools:text="@string/summary" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

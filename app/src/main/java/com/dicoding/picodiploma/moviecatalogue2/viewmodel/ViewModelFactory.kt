@@ -2,9 +2,10 @@ package com.dicoding.picodiploma.moviecatalogue2.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.picodiploma.moviecatalogue2.Injection
+import com.dicoding.picodiploma.moviecatalogue2.di.Injection
 import com.dicoding.picodiploma.moviecatalogue2.data.MoviesRepository
 import com.dicoding.picodiploma.moviecatalogue2.ui.movie.MovieViewModel
+import com.dicoding.picodiploma.moviecatalogue2.ui.tvshow.TvShowViewModel
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory private constructor(private val repository: MoviesRepository) :
@@ -23,9 +24,13 @@ class ViewModelFactory private constructor(private val repository: MoviesReposit
     }
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        when {
+        return when {
             modelClass.isAssignableFrom(MovieViewModel::class.java) -> {
-                return MovieViewModel(repository) as T
+                MovieViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
+                TvShowViewModel(repository) as T
             }
             else -> throw Throwable("Unknown ViewModel Class: " + modelClass.name)
         }
