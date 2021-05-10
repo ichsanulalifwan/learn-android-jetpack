@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.moviecatalogue2.databinding.FragmentTvShowBinding
+import com.dicoding.picodiploma.moviecatalogue2.ui.movie.MovieViewModel
 
 class TvShowFragment : Fragment() {
 
@@ -23,27 +25,26 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showLoading(true)
 
-        /*if (activity != null) {
-            val viewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.NewInstanceFactory()
-            )[TvShowViewModel::class.java]
+        if (activity != null) {
 
-            val tvshow = viewModel.getTvShow()
+            /*tvShowViewModel.tvShow.observe(viewLifecycleOwner, {
+                tvShowAdapter.setDataTvShow(it)
+            })
+
+            tvShowViewModel.isLoading.observe(viewLifecycleOwner, {
+                if (it) showLoading(true)
+                else showLoading(false)
+            })
 
             tvShowAdapter = TvShowAdapter()
-            tvShowAdapter.setDataTvShow(tvshow)
-
-            showLoading(false)
 
             with(fragmentTvShowBinding.rvTvShow) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = tvShowAdapter
-            }
-        }*/
+            }*/
+        }
     }
 
     private fun showLoading(state: Boolean) {

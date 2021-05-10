@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.moviecatalogue2.databinding.FragmentMovieBinding
+import com.dicoding.picodiploma.moviecatalogue2.viewmodel.ViewModelFactory
 
 class MovieFragment : Fragment() {
 
@@ -23,27 +26,30 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showLoading(true)
+        if (activity != null) {
 
-        /*if (activity != null) {
-            val viewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.NewInstanceFactory()
-            )[MovieViewModel::class.java]
-
-            val movies = viewModel.getMovies()
+            val factory = ViewModelFactory.getInstance()
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             movieAdapter = MovieAdapter()
-            movieAdapter.setDataMovies(movies)
+            showLoading(true)
 
-            showLoading(false)
+            viewModel.getPopularMovie().observe(viewLifecycleOwner, {
+                    movieAdapter.setDataMovies(it)
+                    showLoading(false)
+            })
+
+            /*movieViewModel.isLoading.observe(viewLifecycleOwner, {
+                if (it) showLoading(true)
+                else showLoading(false)
+            })*/
 
             with(fragmentMovieBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter
             }
-        }*/
+        }
     }
 
     private fun showLoading(state: Boolean) {
