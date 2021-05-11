@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dicoding.picodiploma.moviecatalogue2.data.response.MovieDetailResponse
 import com.dicoding.picodiploma.moviecatalogue2.data.response.TvShowDetailResponse
+import com.dicoding.picodiploma.moviecatalogue2.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,11 +25,16 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
     }
 
     override fun getPopularMovie(): LiveData<List<MovieResultsItem>> {
+        EspressoIdlingResource.increment()
         val movies = MutableLiveData<List<MovieResultsItem>>()
         remoteDataSource.getPopularMovie().enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 if (response.isSuccessful) {
                     movies.value = response.body()?.results as List<MovieResultsItem>
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
@@ -42,6 +48,7 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
     }
 
     override fun getPopularTvShow(): LiveData<List<TvShowResultsItem>> {
+        EspressoIdlingResource.increment()
         val tvShow = MutableLiveData<List<TvShowResultsItem>>()
         remoteDataSource.getPopularTvShow().enqueue(object : Callback<TvShowResponse> {
             override fun onResponse(
@@ -50,6 +57,10 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
             ) {
                 if (response.isSuccessful) {
                     tvShow.value = response.body()?.results as List<TvShowResultsItem>
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
@@ -63,6 +74,7 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
     }
 
     override fun getDetailMovie(movieId: Int): LiveData<MovieDetailResponse> {
+        EspressoIdlingResource.increment()
         val detailMovie = MutableLiveData<MovieDetailResponse>()
         remoteDataSource.getDetailMovie(movieId).enqueue(object : Callback<MovieDetailResponse> {
             override fun onResponse(
@@ -71,6 +83,10 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
             ) {
                 if (response.isSuccessful) {
                     detailMovie.value = response.body() as MovieDetailResponse
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
@@ -85,6 +101,7 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
     }
 
     override fun getDetailTvShow(tvId: Int): LiveData<TvShowDetailResponse> {
+        EspressoIdlingResource.increment()
         val detailTvShow = MutableLiveData<TvShowDetailResponse>()
         remoteDataSource.getDetailTvShow(tvId).enqueue(object : Callback<TvShowDetailResponse> {
             override fun onResponse(
@@ -93,6 +110,10 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
             ) {
                 if (response.isSuccessful) {
                     detailTvShow.value = response.body() as TvShowDetailResponse
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }

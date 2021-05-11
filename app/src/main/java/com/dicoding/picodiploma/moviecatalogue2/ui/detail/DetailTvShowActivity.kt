@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.moviecatalogue2.R
 import com.dicoding.picodiploma.moviecatalogue2.data.response.TvShowDetailResponse
 import com.dicoding.picodiploma.moviecatalogue2.databinding.ActivityDetailTvShowBinding
@@ -58,7 +58,7 @@ class DetailTvShowActivity : AppCompatActivity() {
             Glide.with(this@DetailTvShowActivity)
                 .load(IMAGE_PREFIX + tvshow.posterPath)
                 .transform(RoundedCorners(20))
-                .placeholder(R.drawable.movie_poster)
+                .apply(RequestOptions.placeholderOf(R.drawable.movie_poster))
                 .into(imgPosterTv)
         }
     }
