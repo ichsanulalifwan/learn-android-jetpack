@@ -15,5 +15,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.tablayout.setupWithViewPager(activityMainBinding.viewPager)
 
         supportActionBar?.elevation = 0f
+
+        title = "Movie Catalogue"
     }
 }

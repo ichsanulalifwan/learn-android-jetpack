@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.moviecatalogue2.ui.tvshow
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.picodiploma.moviecatalogue2.data.TvShowResultsItem
 import com.dicoding.picodiploma.moviecatalogue2.databinding.FragmentTvShowBinding
+import com.dicoding.picodiploma.moviecatalogue2.ui.detail.DetailTvShowActivity
 import com.dicoding.picodiploma.moviecatalogue2.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment() {
@@ -32,6 +35,7 @@ class TvShowFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
 
             tvShowAdapter = TvShowAdapter()
+            setupRecyclerView()
             showLoading(true)
 
             viewModel.getPopularTvShow().observe(viewLifecycleOwner, {
@@ -39,12 +43,26 @@ class TvShowFragment : Fragment() {
                 showLoading(false)
             })
 
-            with(fragmentTvShowBinding.rvTvShow) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = tvShowAdapter
-            }
+            onTvShowSelected()
         }
+    }
+
+    private fun setupRecyclerView() {
+        with(fragmentTvShowBinding.rvTvShow) {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = tvShowAdapter
+        }
+    }
+
+    private fun onTvShowSelected() {
+        tvShowAdapter.setOnItemClickListener(object : TvShowAdapter.OnItemClickListener {
+            override fun onTvShowClicked(tvshow: TvShowResultsItem) {
+                val intent = Intent(context, DetailTvShowActivity::class.java)
+                intent.putExtra(DetailTvShowActivity.EXTRA_TV_ID, tvshow.id)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun showLoading(state: Boolean) {

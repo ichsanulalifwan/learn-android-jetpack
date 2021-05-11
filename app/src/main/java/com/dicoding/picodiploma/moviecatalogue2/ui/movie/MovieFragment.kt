@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.moviecatalogue2.ui.movie
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.picodiploma.moviecatalogue2.data.MovieResultsItem
 import com.dicoding.picodiploma.moviecatalogue2.databinding.FragmentMovieBinding
+import com.dicoding.picodiploma.moviecatalogue2.ui.detail.DetailMovieActivity
+import com.dicoding.picodiploma.moviecatalogue2.ui.detail.DetailMovieActivity.Companion.EXTRA_MOVIE_ID
 import com.dicoding.picodiploma.moviecatalogue2.viewmodel.ViewModelFactory
 
 class MovieFragment : Fragment() {
@@ -32,24 +36,39 @@ class MovieFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             movieAdapter = MovieAdapter()
+            setupRecyclerView()
             showLoading(true)
 
             viewModel.getPopularMovie().observe(viewLifecycleOwner, {
-                    movieAdapter.setDataMovies(it)
-                    showLoading(false)
+                movieAdapter.setDataMovies(it)
+                showLoading(false)
             })
+
+            onMovieSelected()
 
             /*movieViewModel.isLoading.observe(viewLifecycleOwner, {
                 if (it) showLoading(true)
                 else showLoading(false)
             })*/
-
-            with(fragmentMovieBinding.rvMovie) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = movieAdapter
-            }
         }
+    }
+
+    private fun setupRecyclerView() {
+        with(fragmentMovieBinding.rvMovie) {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = movieAdapter
+        }
+    }
+
+    private fun onMovieSelected() {
+        movieAdapter.setOnItemClickListener(object : MovieAdapter.OnItemClickListener {
+            override fun onMovieClicked(movie: MovieResultsItem) {
+                val intent = Intent(context, DetailMovieActivity::class.java)
+                intent.putExtra(EXTRA_MOVIE_ID, movie.id)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun showLoading(state: Boolean) {

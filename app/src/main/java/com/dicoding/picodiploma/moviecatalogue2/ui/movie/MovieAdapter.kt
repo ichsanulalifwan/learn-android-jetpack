@@ -4,14 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.dicoding.picodiploma.moviecatalogue2.R
 import com.dicoding.picodiploma.moviecatalogue2.data.MovieResultsItem
 import com.dicoding.picodiploma.moviecatalogue2.databinding.ItemListBinding
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
+    private lateinit var onItemClickListener: OnItemClickListener
     private var listMovies = ArrayList<MovieResultsItem>()
 
-    companion object{
+    companion object {
         const val IMAGE_PREFIX = "https://image.tmdb.org/t/p/original"
     }
 
@@ -20,6 +23,10 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         this.listMovies.clear()
         this.listMovies.addAll(movies)
         notifyDataSetChanged()
+    }
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickListener = onItemClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -37,25 +44,29 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun getItemCount(): Int = listMovies.size
 
-    class MovieViewHolder(private val binding: ItemListBinding) :
+    inner class MovieViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MovieResultsItem) {
             with(binding) {
                 tvTitle.text = movie.title
                 tvRelaseDate.text = movie.releaseDate
-                tvSummary.text = movie.overview
-                /*itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie.movieId)
-                    itemView.context.startActivity(intent)
-                }*/
+                tvOverviewItem.text = movie.overview
+                itemView.setOnClickListener {
+                    onItemClickListener.onMovieClicked(movie)
+                }
 
                 Glide.with(itemView.context)
                     .load(IMAGE_PREFIX + movie.posterPath)
                     .centerCrop()
+                    .placeholder(R.drawable.movie_poster)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imgPoster)
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onMovieClicked(movie: MovieResultsItem)
     }
 }

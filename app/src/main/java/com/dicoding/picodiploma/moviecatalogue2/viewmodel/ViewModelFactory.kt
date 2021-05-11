@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.picodiploma.moviecatalogue2.di.Injection
 import com.dicoding.picodiploma.moviecatalogue2.data.MoviesRepository
+import com.dicoding.picodiploma.moviecatalogue2.ui.detail.DetailMovieViewModel
+import com.dicoding.picodiploma.moviecatalogue2.ui.detail.DetailTvShowViewModel
 import com.dicoding.picodiploma.moviecatalogue2.ui.movie.MovieViewModel
 import com.dicoding.picodiploma.moviecatalogue2.ui.tvshow.TvShowViewModel
 
@@ -32,6 +34,15 @@ class ViewModelFactory private constructor(private val repository: MoviesReposit
             modelClass.isAssignableFrom(TvShowViewModel::class.java) -> {
                 TvShowViewModel(repository) as T
             }
+
+            modelClass.isAssignableFrom(DetailMovieViewModel::class.java) -> {
+                DetailMovieViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(DetailTvShowViewModel::class.java) -> {
+                DetailTvShowViewModel(repository) as T
+            }
+
             else -> throw Throwable("Unknown ViewModel Class: " + modelClass.name)
         }
     }
