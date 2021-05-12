@@ -11,7 +11,7 @@ data class MovieDetailResponse(
     val releaseDate: String,
 
     @field:SerializedName("genres")
-    val genres: List<MovieGenresItem>,
+    val genres: List<GenresItem>,
 
     @field:SerializedName("vote_average")
     val voteAverage: Double,
@@ -35,7 +35,7 @@ data class MovieDetailResponse(
     val status: String
 )
 
-data class MovieGenresItem(
+data class GenresItem(
 
     @field:SerializedName("name")
     val name: String,

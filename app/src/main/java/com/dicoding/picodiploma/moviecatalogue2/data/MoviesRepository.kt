@@ -3,8 +3,7 @@ package com.dicoding.picodiploma.moviecatalogue2.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.dicoding.picodiploma.moviecatalogue2.data.response.MovieDetailResponse
-import com.dicoding.picodiploma.moviecatalogue2.data.response.TvShowDetailResponse
+import com.dicoding.picodiploma.moviecatalogue2.data.response.*
 import com.dicoding.picodiploma.moviecatalogue2.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
@@ -90,7 +89,6 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
-
             }
 
             override fun onFailure(call: Call<MovieDetailResponse>, t: Throwable) {
@@ -124,5 +122,57 @@ class MoviesRepository(private val remoteDataSource: RemoteDataSource) : MoviesD
             }
         })
         return detailTvShow
+    }
+
+    override fun getMovieGenres(movieId: Int): LiveData<List<GenresItem>> {
+        EspressoIdlingResource.increment()
+        val movieGenres = MutableLiveData<List<GenresItem>>()
+        remoteDataSource.getDetailMovie(movieId).enqueue(object : Callback<MovieDetailResponse> {
+            override fun onResponse(
+                call: Call<MovieDetailResponse>,
+                response: Response<MovieDetailResponse>
+            ) {
+                if (response.isSuccessful) {
+                    movieGenres.value = response.body()?.genres
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<MovieDetailResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return movieGenres
+    }
+
+    override fun getTvGenres(tvId: Int): LiveData<List<GenresItem>> {
+        EspressoIdlingResource.increment()
+        val tvGenres = MutableLiveData<List<GenresItem>>()
+        remoteDataSource.getDetailTvShow(tvId).enqueue(object : Callback<TvShowDetailResponse> {
+            override fun onResponse(
+                call: Call<TvShowDetailResponse>,
+                response: Response<TvShowDetailResponse>
+            ) {
+                if (response.isSuccessful) {
+                    tvGenres.value = response.body()?.genres
+
+                    if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                        EspressoIdlingResource.decrement()
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<TvShowDetailResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return tvGenres
     }
 }

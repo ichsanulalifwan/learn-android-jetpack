@@ -45,11 +45,6 @@ class MovieFragment : Fragment() {
             })
 
             onMovieSelected()
-
-            /*movieViewModel.isLoading.observe(viewLifecycleOwner, {
-                if (it) showLoading(true)
-                else showLoading(false)
-            })*/
         }
     }
 

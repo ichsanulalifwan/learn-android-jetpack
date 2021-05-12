@@ -13,4 +13,5 @@
     <color name="tmdb_color">#114e60</color>
     <color name="white_2">#f9fcfb</color>
     <color name="white_3">#f9f6f7</color>
+    <color name="genre_card">#ebd9c8</color>
 </resources>

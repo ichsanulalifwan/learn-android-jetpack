@@ -20,7 +20,7 @@ data class TvShowDetailResponse(
     val posterPath: String,
 
     @field:SerializedName("genres")
-    val genres: List<TvGenresItem>,
+    val genres: List<GenresItem>,
 
     @field:SerializedName("vote_average")
     val voteAverage: Double,
@@ -31,27 +31,12 @@ data class TvShowDetailResponse(
     @field:SerializedName("tagline")
     val tagline: String,
 
-    @field:SerializedName("episode_run_time")
-    val episodeRunTime: List<Int>,
-
     @field:SerializedName("id")
     val id: Int,
 
     @field:SerializedName("number_of_seasons")
     val numberOfSeasons: Int,
 
-    @field:SerializedName("last_air_date")
-    val lastAirDate: String,
-
     @field:SerializedName("status")
     val status: String
-)
-
-data class TvGenresItem(
-
-    @field:SerializedName("name")
-    val name: String,
-
-    @field:SerializedName("id")
-    val id: Int
 )

@@ -77,6 +77,33 @@
                 android:text="@string/season_text"
                 android:textColor="@color/white_2"
                 android:textSize="16sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/border_vertical"
+                android:layout_width="2dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp" />
+
+            <TextView
+                android:id="@+id/tv_episode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/white_2"
+                android:textSize="16sp"
+                tools:text="@string/season_example" />
+
+            <TextView
+                android:id="@+id/txt_episode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:text="@string/txt_episode"
+                android:textColor="@color/white_2"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <TextView
@@ -97,74 +124,125 @@
             tools:text="@string/tagline" />
 
         <TextView
-            android:id="@+id/txt_genre"
+            android:id="@+id/txt_voteTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/txt_genres"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_vote"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tagline_tv" />
 
         <TextView
-            android:id="@+id/tv_genre"
+            android:id="@+id/tv_voteTv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:gravity="start"
             android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_voteTv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/txt_genre"
-            app:layout_constraintTop_toTopOf="@id/txt_genre"
-            tools:text="@string/txt_genre_example" />
+            app:layout_constraintStart_toEndOf="@id/txt_voteTv"
+            app:layout_constraintTop_toTopOf="@id/txt_voteTv"
+            tools:text="@string/txt_vote_example" />
 
         <TextView
-            android:id="@+id/txt_runtime"
+            android:id="@+id/txt_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/txt_runtime"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="2dp"
+            android:text="@string/txt_genres"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_genre" />
+            app:layout_constraintTop_toBottomOf="@id/txt_voteTv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGenres"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:scrollbarSize="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_genre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_genre"
+            app:layout_constraintTop_toTopOf="@id/txt_genre"
+            tools:listitem="@layout/item_genre" />
 
         <TextView
-            android:id="@+id/tv_runtime"
+            android:id="@+id/txt_statusTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txt_status"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_genre" />
+
+        <TextView
+            android:id="@+id/tv_statusTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/white"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/txt_runtime"
-            app:layout_constraintStart_toEndOf="@id/txt_runtime"
-            app:layout_constraintTop_toTopOf="@id/txt_runtime"
-            tools:text="@string/txt_runtime_example" />
+            app:layout_constraintBottom_toBottomOf="@id/txt_statusTv"
+            app:layout_constraintStart_toEndOf="@id/txt_statusTv"
+            app:layout_constraintTop_toTopOf="@id/txt_statusTv"
+            tools:text="@string/txt_status_example" />
+
+        <TextView
+            android:id="@+id/txt_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txt_type"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_statusTv" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_type"
+            app:layout_constraintStart_toEndOf="@id/txt_type"
+            app:layout_constraintTop_toTopOf="@id/txt_type"
+            tools:text="@string/txt_type_example" />
 
         <TextView
             android:id="@+id/txt_overview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/txt_overview"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_runtime" />
+            app:layout_constraintTop_toBottomOf="@id/txt_type" />
 
         <TextView
             android:id="@+id/tv_overview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:gravity="start"
             android:textColor="@color/white"
             android:textSize="16sp"

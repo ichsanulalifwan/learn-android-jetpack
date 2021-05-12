@@ -16,9 +16,6 @@ data class MovieResultsItem(
     @field:SerializedName("release_date")
     val releaseDate: String,
 
-    @field:SerializedName("vote_average")
-    val voteAverage: Double,
-
     @field:SerializedName("id")
     val id: Int,
 
