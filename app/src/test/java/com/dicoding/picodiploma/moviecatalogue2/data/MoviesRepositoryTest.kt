@@ -3,7 +3,6 @@ package com.dicoding.picodiploma.moviecatalogue2.data
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dicoding.picodiploma.moviecatalogue2.utils.DataDummy
 import com.dicoding.picodiploma.moviecatalogue2.utils.LiveDataTestUtil
-import junit.framework.TestCase
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
