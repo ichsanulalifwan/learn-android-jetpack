@@ -14,11 +14,11 @@ object DataDummy {
 
         movies.add(
             MovieResultsItem(
-                "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
-                "2018",
-                10,
-                "Bohemian Rhapsody",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg"
+                "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
+                "2021-04-29",
+                567189,
+                "Tom Clancy's Without Remorse",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg"
             )
         )
 
@@ -50,11 +50,11 @@ object DataDummy {
 
         tvshow.add(
             TvShowResultsItem(
-                "2017",
-                "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
-                "Riverdale",
-                21,
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wRbjVBdDo5qHAEOVYoMWpM58FSA.jpg"
+                "2021-03-19",
+                "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience.",
+                "The Falcon and the Winter Soldier",
+                88396,
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6kbAMLteGO8yyewYau6bJ683sw7.jpg"
             )
         )
 
@@ -87,15 +87,15 @@ object DataDummy {
 
         detailMovies.add(
             MovieDetailResponse(
-                "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
-                "2018",
+                "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
+                "2021-04-29",
                 generateDummyGenres(),
-                8.0,
-                135,
-                "Fearless lives forever",
-                10,
-                "Bohemian Rhapsody",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
+                7.3,
+                109,
+                "",
+                567189,
+                "Tom Clancy's Without Remorse",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
                 "Released"
             )
         )
@@ -138,18 +138,18 @@ object DataDummy {
 
         detailTv.add(
             TvShowDetailResponse(
-                "2017",
-                "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
-                87,
+                "2021-03-19",
+                "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience.",
+                6,
                 "Scripted",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wRbjVBdDo5qHAEOVYoMWpM58FSA.jpg",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6kbAMLteGO8yyewYau6bJ683sw7.jpg",
                 generateDummyGenres(),
-                8.6,
-                "Riverdale",
-                "Small town. Big secrets.",
-                21,
-                5,
-                "Returning Series"
+                7.9,
+                "The Falcon and the Winter Soldier",
+                "Honor the shield",
+                88396,
+                1,
+                "Ended"
             )
         )
 
@@ -195,22 +195,29 @@ object DataDummy {
 
         genreItem.add(
             GenresItem(
-                "Mystery",
-                9648
+                "Action",
+                28
             )
         )
 
         genreItem.add(
             GenresItem(
-                "Drama",
-                18
+                "Adventure",
+                12
             )
         )
 
         genreItem.add(
             GenresItem(
-                "Crime",
-                80
+                "Thriller",
+                53
+            )
+        )
+
+        genreItem.add(
+            GenresItem(
+                "War",
+                10752
             )
         )
         return genreItem
