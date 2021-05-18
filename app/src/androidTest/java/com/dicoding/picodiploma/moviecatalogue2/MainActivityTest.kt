@@ -79,7 +79,6 @@ class MainActivityTest {
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_runtime))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tv_overview))
     }
 
     @Test

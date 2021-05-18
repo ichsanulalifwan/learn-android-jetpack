@@ -80,7 +80,7 @@ class DetailMovieViewModelTest {
 
         verify(moviesRepository, times(2)).getMovieGenres(movieId)
         assertNotNull(genreEntities)
-        assertEquals(3, genreEntities?.size)
+        assertEquals(4, genreEntities?.size)
 
         viewModel.getMovieGenres(movieId).observeForever(genreObserver)
         verify(genreObserver).onChanged(dummyGenre)

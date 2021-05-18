@@ -83,7 +83,7 @@ class DetailTvShowViewModelTest {
 
         verify(tvRepository, times(2)).getTvGenres(tvId)
         assertNotNull(genreEntities)
-        assertEquals(3, genreEntities?.size)
+        assertEquals(4, genreEntities?.size)
 
         viewModel.getTvGenres(tvId).observeForever(genreObserver)
         Mockito.verify(genreObserver).onChanged(dummyGenre)
