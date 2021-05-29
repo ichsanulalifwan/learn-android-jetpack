@@ -14,21 +14,21 @@ object DataDummy {
 
         movies.add(
             MovieResultsItem(
-                "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
-                "2021-04-29",
-                567189,
-                "Tom Clancy's Without Remorse",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg"
+                "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+                "2021-04-07",
+                460465,
+                "Mortal Kombat",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/nkayOAUBUu4mMvyNf9iHSUiPjF1.jpg"
             )
         )
 
         movies.add(
             MovieResultsItem(
-                "Gellert Grindelwald has escaped imprisonment and has begun gathering followers to his cause—elevating wizards above all non-magical beings. The only one capable of putting a stop to him is the wizard he once called his closest friend, Albus Dumbledore. However, Dumbledore will need to seek help from the wizard who had thwarted Grindelwald once before, his former student Newt Scamander, who agrees to help, unaware of the dangers that lie ahead. Lines are drawn as love and loyalty are tested, even among the truest friends and family, in an increasingly divided wizarding world.",
-                "2018",
-                11,
-                "Fantastic Beasts: The Crimes of Grindelwald",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg"
+                "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
+                "2021-04-29",
+                567189,
+                "Tom Clancy's Without Remorse",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg"
             )
         )
 
@@ -50,11 +50,11 @@ object DataDummy {
 
         tvshow.add(
             TvShowResultsItem(
-                "2021-03-19",
-                "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience.",
-                "The Falcon and the Winter Soldier",
-                88396,
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6kbAMLteGO8yyewYau6bJ683sw7.jpg"
+                "2014-10-07",
+                "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \\\\\\\"meta-human\\\\\\\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
+                "The Flash",
+                60735,
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg"
             )
         )
 
@@ -87,6 +87,21 @@ object DataDummy {
 
         detailMovies.add(
             MovieDetailResponse(
+                "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+                "2021-04-07",
+                generateDummyGenres(),
+                7.6,
+                110,
+                "Get over here.",
+                460465,
+                "Mortal Kombat",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg",
+                "Released"
+            )
+        )
+
+        detailMovies.add(
+            MovieDetailResponse(
                 "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
                 "2021-04-29",
                 generateDummyGenres(),
@@ -96,21 +111,6 @@ object DataDummy {
                 567189,
                 "Tom Clancy's Without Remorse",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
-                "Released"
-            )
-        )
-
-        detailMovies.add(
-            MovieDetailResponse(
-                "Gellert Grindelwald has escaped imprisonment and has begun gathering followers to his cause—elevating wizards above all non-magical beings. The only one capable of putting a stop to him is the wizard he once called his closest friend, Albus Dumbledore. However, Dumbledore will need to seek help from the wizard who had thwarted Grindelwald once before, his former student Newt Scamander, who agrees to help, unaware of the dangers that lie ahead. Lines are drawn as love and loyalty are tested, even among the truest friends and family, in an increasingly divided wizarding world.",
-                "2018",
-                generateDummyGenres(),
-                6.6,
-                134,
-                "Fate of One. Future of All.",
-                11,
-                "Fantastic Beasts: The Crimes of Grindelwald",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg",
                 "Released"
             )
         )
@@ -138,18 +138,18 @@ object DataDummy {
 
         detailTv.add(
             TvShowDetailResponse(
-                "2021-03-19",
-                "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience.",
-                6,
+                "2014-10-07",
+                "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \\\"meta-human\\\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
+                146,
                 "Scripted",
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6kbAMLteGO8yyewYau6bJ683sw7.jpg",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
                 generateDummyGenres(),
-                7.9,
-                "The Falcon and the Winter Soldier",
-                "Honor the shield",
-                88396,
-                1,
-                "Ended"
+                7.7,
+                "The Flash",
+                "The fastest man alive.",
+                60735,
+                7,
+                "Returning Series"
             )
         )
 

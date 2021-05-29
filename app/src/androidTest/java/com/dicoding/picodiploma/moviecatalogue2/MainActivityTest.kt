@@ -22,8 +22,6 @@ class MainActivityTest {
 
     private val dummyMovie = DataDummy.generateDummyMovies()
     private val dummyTvShow = DataDummy.generateDummyTvShow()
-    private val dummyDetailMovie = DataDummy.generateDummyDetailMovies()
-    private val dummyDetailTv = DataDummy.generateDummyDetailTv()
 
     @get:Rule
     var activityRule = ActivityScenarioRule(MainActivity::class.java)
@@ -60,8 +58,6 @@ class MainActivityTest {
         )
         Espresso.onView(withId(R.id.tv_title_movie))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tv_title_movie))
-            .check(ViewAssertions.matches(withText(dummyDetailMovie[0].title)))
         Espresso.onView(withId(R.id.img_posterMovie))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_relase))
@@ -70,11 +66,6 @@ class MainActivityTest {
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.rvGenres))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.rvGenres)).perform(
-            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
-                dummyDetailMovie[0].genres.size
-            )
-        )
         Espresso.onView(withId(R.id.tv_status))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_runtime))
@@ -104,21 +95,13 @@ class MainActivityTest {
         )
         Espresso.onView(withId(R.id.tv_title_tvShow))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tv_title_tvShow))
-            .check(ViewAssertions.matches(withText(dummyDetailTv[0].name)))
         Espresso.onView(withId(R.id.img_posterTv))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_first_air))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_season))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tv_season))
-            .check(ViewAssertions.matches(withText(dummyDetailTv[0].numberOfSeasons.toString())))
         Espresso.onView(withId(R.id.tv_episode))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tv_episode))
-            .check(ViewAssertions.matches(withText(dummyDetailTv[0].numberOfEpisodes.toString())))
-        Espresso.onView(withId(R.id.tv_tagline_tv))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(withId(R.id.tv_voteTv))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
